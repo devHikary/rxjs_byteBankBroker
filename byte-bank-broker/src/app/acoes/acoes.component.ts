@@ -3,7 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Acoes } from './modelo/acoes';
 import { AcoesService } from './acoes.service';
-import { switchMap, tap } from 'rxjs/operators';
+import { filter, switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-acoes',
@@ -21,6 +21,10 @@ export class AcoesComponent {
     tap(() => {
       console.log('Fluxo do Filtro');
     }),
+    tap(console.log),
+    filter((valorDigitado) =>
+      (valorDigitado.length >= 3 || !valorDigitado.length)
+    ),
     switchMap((valorDigitado) => this.acoesService.getAcoes(valorDigitado)),
     tap(console.log)
   );
