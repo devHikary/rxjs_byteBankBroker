@@ -55,3 +55,9 @@ pluck('payload'),
 - `SwitchMap` → usado para o controle de ação do fluxo.
 - Desejamos alternar o fluxo de dados vindos do evento de digitação para o fluxo de dados da requisição do HTTP.
 - `Merge` → junta dois ou mais `Observable` em um só fluxo.
+
+### Aula 4
+
+- `filter()` vai receber uma função que passada o valor do fluxo, a função retorna um valor booleano. Se o valor retornado for verdadeiro, o fluxo segue para a próxima fase.
+- `debounceTime()` → recebe, apenas, um valor numérico que representa a quantidade de milissegundos que o fluxo deve esperar. E ele emite para o próximo operador o último valor que foi gerado nesse intervalo.
+- `distinctUntilChanged()` → o operador compara o valor digitado com o valor anterior, se for igual ele não faz a requisição.
